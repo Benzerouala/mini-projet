@@ -24,15 +24,8 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCounter((c) => {
-        if (c <= 1) {
-          fetchUsers(); 
-          return 10; 
-        }
-        return c - 1;
-      });
+      setCounter((c) => (c > 0 ? c - 1 : 10));
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
